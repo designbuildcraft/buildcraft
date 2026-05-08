@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kunal Kumar — Civil Engineer</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #080c14;
+    --bg2: #0d1420;
+    --bg3: #111927;
+    --gold: #c9963a;
+    --gold-light: #e8b558;
+    --gold-dim: rgba(201,150,58,0.15);
+    --grid: rgba(201,150,58,0.06);
+    --border: rgba(201,150,58,0.2);
+    --border-bright: rgba(201,150,58,0.5);
+    --text: #e8e0d0;
+    --muted: #8a8070;
+    --dim: #4a4540;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'DM Sans',sans-serif;
+    font-size:16px;
+    line-height:1.7;
+    overflow-x:hidden;
+  }
+
+  /* GRID BACKGROUND */
+  body::before{
+    content:'';
+    position:fixed;
+    inset:0;
+    background-image:
+      linear-gradient(var(--grid) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+    background-size:60px 60px;
+    pointer-events:none;
+    z-index:0;
+  }
+  body::after{
+    content:'';
+    position:fixed;
+    inset:0;
+    background:radial-gradient(ellipse 80% 60% at 50% 0%, rgba(201,150,58,0.05) 0%, transparent 70%);
+    pointer-events:none;
+    z-index:0;
+  }
+
+  /* NAV */
+  nav{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:1.2rem 4rem;
+    background:rgba(8,12,20,0.85);
+    backdrop-filter:blur(20px);
+    border-bottom:1px solid var(--border);
+  }
+  .nav-logo{
+    font-family:'Space Mono',monospace;
+    font-size:0.75rem;
+    color:var(--gold);
+    letter-spacing:0.15em;
+    text-transform:uppercase;
+  }
+  .nav-links{display:flex;gap:2.5rem;}
+  .nav-links a{
+    font-size:0.78rem;
+    color:var(--muted);
+    text-decoration:none;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    font-family:'Space Mono',monospace;
+    transition:color 0.3s;
+    position:relative;
+  }
+  .nav-links a::after{
+    content:'';
+    position:absolute;bottom:-4px;left:0;right:0;height:1px;
+    background:var(--gold);
+    transform:scaleX(0);
+    transition:transform 0.3s;
+  }
+  .nav-links a:hover{color:var(--gold);}
+  .nav-links a:hover::after{transform:scaleX(1);}
+
+  /* HERO */
+  .hero{
+    min-height:100vh;
+    display:flex;align-items:center;
+    padding:8rem 4rem 4rem;
+    position:relative;
+    z-index:1;
+  }
+  .hero-inner{max-width:1200px;width:100%;margin:0 auto;}
+  .hero-tag{
+    font-family:'Space Mono',monospace;
+    font-size:0.7rem;
+    color:var(--gold);
+    letter-spacing:0.25em;
+    text-transform:uppercase;
+    margin-bottom:2rem;
+    display:flex;align-items:center;gap:1rem;
+  }
+  .hero-tag::before{
+    content:'';display:block;
+    width:40px;height:1px;background:var(--gold);
+  }
+  .hero-name{
+    font-family:'Playfair Display',serif;
+    font-size:clamp(4rem,9vw,8rem);
+    font-weight:900;
+    line-height:0.95;
+    letter-spacing:-0.02em;
+    color:#fff;
+    margin-bottom:0.3em;
+  }
+  .hero-name span{
+    color:transparent;
+    -webkit-text-stroke:1px var(--gold);
+  }
+  .hero-sub{
+    font-family:'Playfair Display',serif;
+    font-size:clamp(1.2rem,2.5vw,1.8rem);
+    font-style:italic;
+    color:var(--gold-light);
+    margin-bottom:2.5rem;
+  }
+  .hero-desc{
+    max-width:560px;
+    font-size:1rem;
+    color:var(--muted);
+    line-height:1.8;
+    margin-bottom:3rem;
+  }
+  .hero-cta{
+    display:flex;gap:1.5rem;flex-wrap:wrap;
+  }
+  .btn-primary{
+    display:inline-flex;align-items:center;gap:0.6rem;
+    padding:0.9rem 2.2rem;
+    background:var(--gold);
+    color:#080c14;
+    font-size:0.8rem;
+    font-weight:600;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    text-decoration:none;
+    border:none;cursor:pointer;
+    transition:all 0.3s;
+    font-family:'Space Mono',monospace;
+    clip-path:polygon(0 0,calc(100% - 12px) 0,100% 12px,100% 100%,12px 100%,0 calc(100% - 12px));
+  }
+  .btn-primary:hover{background:var(--gold-light);transform:translateY(-2px);}
+  .btn-secondary{
+    display:inline-flex;align-items:center;gap:0.6rem;
+    padding:0.9rem 2.2rem;
+    background:transparent;
+    color:var(--gold);
+    font-size:0.8rem;
+    font-weight:600;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    text-decoration:none;
+    border:1px solid var(--border-bright);
+    cursor:pointer;
+    transition:all 0.3s;
+    font-family:'Space Mono',monospace;
+  }
+  .btn-secondary:hover{background:var(--gold-dim);border-color:var(--gold);}
+  .hero-stats{
+    position:absolute;right:4rem;bottom:4rem;
+    display:flex;flex-direction:column;gap:2rem;
+    font-family:'Space Mono',monospace;
+  }
+  .stat{text-align:right;}
+  .stat-num{
+    font-size:2.5rem;font-weight:700;
+    color:#fff;line-height:1;
+  }
+  .stat-num span{color:var(--gold);font-size:1.5rem;}
+  .stat-label{
+    font-size:0.65rem;letter-spacing:0.18em;
+    text-transform:uppercase;color:var(--muted);
+    margin-top:0.2rem;
+  }
+  .scroll-indicator{
+    position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);
+    display:flex;flex-direction:column;align-items:center;gap:0.8rem;
+    font-family:'Space Mono',monospace;font-size:0.6rem;
+    letter-spacing:0.2em;color:var(--dim);text-transform:uppercase;
+  }
+  .scroll-line{
+    width:1px;height:60px;background:linear-gradient(to bottom,var(--gold),transparent);
+    animation:scrollPulse 2s ease-in-out infinite;
+  }
+  @keyframes scrollPulse{0%,100%{opacity:0.3;height:40px}50%{opacity:1;height:60px}}
+
+  /* SECTIONS */
+  section{
+    position:relative;z-index:1;
+    padding:7rem 4rem;
+    max-width:1300px;margin:0 auto;
+  }
+  .section-header{
+    display:flex;align-items:center;gap:2rem;
+    margin-bottom:4rem;
+  }
+  .section-num{
+    font-family:'Space Mono',monospace;
+    font-size:0.65rem;color:var(--gold);
+    letter-spacing:0.2em;
+    writing-mode:vertical-rl;
+    text-transform:uppercase;
+  }
+  .section-title{
+    font-family:'Playfair Display',serif;
+    font-size:clamp(2.5rem,5vw,4rem);
+    font-weight:700;
+    color:#fff;
+    line-height:1;
+  }
+  .section-line{
+    flex:1;height:1px;
+    background:linear-gradient(to right,var(--border),transparent);
+  }
+
+  /* ABOUT */
+  .about-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:4rem;
+    align-items:center;
+  }
+  .about-text p{
+    color:var(--muted);margin-bottom:1.5rem;line-height:1.9;
+  }
+  .about-text p strong{color:var(--gold-light);}
+  .about-blueprint{
+    position:relative;
+    border:1px solid var(--border);
+    padding:2.5rem;
+    background:var(--bg2);
+  }
+  .about-blueprint::before{
+    content:'KUNAL KUMAR — PROFILE.dwg';
+    position:absolute;top:-0.6rem;left:1rem;
+    font-family:'Space Mono',monospace;
+    font-size:0.6rem;color:var(--gold);
+    background:var(--bg2);padding:0 0.5rem;
+    letter-spacing:0.1em;
+  }
+  .about-blueprint::after{
+    content:'';
+    position:absolute;bottom:0;right:0;
+    border-right:20px solid transparent;border-bottom:20px solid var(--gold);
+  }
+  .profile-row{
+    display:flex;align-items:center;gap:1rem;
+    padding:0.7rem 0;
+    border-bottom:1px solid rgba(201,150,58,0.08);
+    font-size:0.85rem;
+  }
+  .profile-row:last-child{border:none;}
+  .profile-key{
+    font-family:'Space Mono',monospace;
+    font-size:0.65rem;color:var(--gold);
+    letter-spacing:0.1em;text-transform:uppercase;
+    min-width:80px;
+  }
+  .profile-val{color:var(--text);}
+  .profile-val a{color:var(--gold-light);text-decoration:none;}
+
+  /* EDUCATION */
+  .edu-grid{display:flex;flex-direction:column;gap:0;}
+  .edu-item{
+    display:grid;
+    grid-template-columns:120px 1fr;
+    gap:0;
+    position:relative;
+  }
+  .edu-year{
+    font-family:'Space Mono',monospace;
+    font-size:0.7rem;
+    color:var(--gold);
+    letter-spacing:0.1em;
+    padding:2rem 2rem 2rem 0;
+    text-align:right;
+    border-right:1px solid var(--border);
+    position:relative;
+  }
+  .edu-year::after{
+    content:'';
+    position:absolute;right:-5px;top:50%;transform:translateY(-50%);
+    width:9px;height:9px;border-radius:50%;
+    background:var(--gold);
+    box-shadow:0 0 12px var(--gold);
+  }
+  .edu-content{
+    padding:2rem 0 2rem 2.5rem;
+    border-bottom:1px solid rgba(201,150,58,0.06);
+  }
+  .edu-item:last-child .edu-content{border:none;}
+  .edu-degree{
+    font-family:'Playfair Display',serif;
+    font-size:1.3rem;font-weight:700;
+    color:#fff;margin-bottom:0.3rem;
+  }
+  .edu-inst{color:var(--gold-light);font-size:0.9rem;margin-bottom:0.3rem;}
+  .edu-status{
+    display:inline-flex;align-items:center;gap:0.4rem;
+    font-family:'Space Mono',monospace;
+    font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;
+    padding:0.25rem 0.7rem;
+    border:1px solid;margin-top:0.5rem;
+  }
+  .status-pursuing{color:var(--gold);border-color:var(--gold);background:rgba(201,150,58,0.08);}
+  .status-done{color:#5a8a5a;border-color:#3a5a3a;background:rgba(90,138,90,0.08);}
+  .status-dot{width:5px;height:5px;border-radius:50%;background:currentColor;animation:blink 1.5s infinite;}
+  .status-done .status-dot{animation:none;}
+  @keyframes blink{0%,100%{opacity:1}50%{opacity:0.3}}
+
+  /* INTERNSHIP */
+  .intern-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;}
+  .intern-card{
+    border:1px solid var(--border);
+    padding:2.5rem;
+    background:var(--bg2);
+    position:relative;
+    overflow:hidden;
+    transition:border-color 0.3s,transform 0.3s;
+  }
+  .intern-card:hover{
+    border-color:var(--gold);
+    transform:translateY(-4px);
+  }
+  .intern-card::before{
+    content:'';
+    position:absolute;top:0;left:0;right:0;height:2px;
+    background:linear-gradient(to right,var(--gold),transparent);
+  }
+  .intern-card-num{
+    font-family:'Space Mono',monospace;
+    font-size:3rem;font-weight:700;
+    color:rgba(201,150,58,0.06);
+    position:absolute;top:1rem;right:1.5rem;
+    line-height:1;
+  }
+  .intern-org{
+    font-family:'Space Mono',monospace;
+    font-size:0.65rem;color:var(--gold);
+    letter-spacing:0.15em;text-transform:uppercase;
+    margin-bottom:0.8rem;
+  }
+  .intern-title{
+    font-family:'Playfair Display',serif;
+    font-size:1.2rem;font-weight:700;
+    color:#fff;margin-bottom:1.2rem;
+  }
+  .intern-points{list-style:none;display:flex;flex-direction:column;gap:0.6rem;}
+  .intern-points li{
+    font-size:0.85rem;color:var(--muted);
+    padding-left:1.2rem;position:relative;line-height:1.6;
+  }
+  .intern-points li::before{
+    content:'▸';
+    position:absolute;left:0;
+    color:var(--gold);font-size:0.7rem;top:0.15rem;
+  }
+
+  /* PROJECTS */
+  .project-card{
+    border:1px solid var(--border);
+    background:var(--bg2);
+    overflow:hidden;
+    margin-bottom:2rem;
+    transition:border-color 0.3s;
+  }
+  .project-card:hover{border-color:var(--gold-light);}
+  .project-header{
+    display:grid;
+    grid-template-columns:auto 1fr auto;
+    align-items:center;gap:2rem;
+    padding:2.5rem;
+    border-bottom:1px solid var(--border);
+  }
+  .project-icon{
+    width:56px;height:56px;
+    border:1px solid var(--border);
+    display:flex;align-items:center;justify-content:center;
+    font-size:1.5rem;
+    color:var(--gold);
+    background:var(--gold-dim);
+    flex-shrink:0;
+  }
+  .project-name{
+    font-family:'Playfair Display',serif;
+    font-size:1.2rem;font-weight:700;color:#fff;
+    margin-bottom:0.2rem;
+  }
+  .project-cat{
+    font-family:'Space Mono',monospace;
+    font-size:0.62rem;color:var(--gold);
+    letter-spacing:0.15em;text-transform:uppercase;
+  }
+  .project-tag{
+    font-family:'Space Mono',monospace;
+    font-size:0.6rem;letter-spacing:0.1em;
+    padding:0.3rem 0.8rem;
+    border:1px solid var(--border);
+    color:var(--muted);text-transform:uppercase;
+  }
+  .project-body{
+    padding:2rem 2.5rem;
+    display:grid;grid-template-columns:1fr 1fr;gap:2rem;
+  }
+  .project-desc{color:var(--muted);font-size:0.9rem;line-height:1.8;}
+  .project-highlights{display:flex;flex-direction:column;gap:0.5rem;}
+  .highlight-item{
+    display:flex;align-items:flex-start;gap:0.8rem;
+    font-size:0.85rem;color:var(--muted);
+  }
+  .highlight-dot{
+    width:6px;height:6px;border-radius:50%;
+    background:var(--gold);margin-top:0.5rem;flex-shrink:0;
+  }
+
+  /* RESEARCH */
+  .research-grid{display:flex;flex-direction:column;gap:1.5rem;}
+  .research-item{
+    border:1px solid var(--border);
+    padding:2rem 2.5rem;
+    background:var(--bg2);
+    display:grid;
+    grid-template-columns:auto 1fr auto;
+    gap:2rem;
+    align-items:center;
+    transition:all 0.3s;
+    position:relative;overflow:hidden;
+  }
+  .research-item::after{
+    content:'';
+    position:absolute;left:0;top:0;bottom:0;width:2px;
+    background:var(--gold);
+    transform:scaleY(0);
+    transition:transform 0.3s;
+    transform-origin:top;
+  }
+  .research-item:hover::after{transform:scaleY(1);}
+  .research-item:hover{border-color:var(--gold);padding-left:3rem;}
+  .research-num{
+    font-family:'Space Mono',monospace;
+    font-size:1.8rem;font-weight:700;
+    color:rgba(201,150,58,0.15);
+    line-height:1;
+  }
+  .research-title{
+    font-family:'Playfair Display',serif;
+    font-size:1.05rem;font-weight:700;
+    color:#fff;margin-bottom:0.4rem;
+  }
+  .research-desc{font-size:0.85rem;color:var(--muted);}
+  .research-badge{
+    font-family:'Space Mono',monospace;
+    font-size:0.6rem;letter-spacing:0.1em;
+    padding:0.4rem 0.9rem;
+    background:rgba(201,150,58,0.1);
+    border:1px solid var(--border);
+    color:var(--gold);
+    text-transform:uppercase;
+    white-space:nowrap;
+  }
+
+  /* SKILLS */
+  .skills-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(180px,1fr));
+    gap:1.5rem;
+  }
+  .skill-card{
+    border:1px solid var(--border);
+    padding:1.8rem;
+    background:var(--bg2);
+    text-align:center;
+    transition:all 0.3s;
+    position:relative;overflow:hidden;
+  }
+  .skill-card:hover{
+    border-color:var(--gold);
+    transform:translateY(-4px);
+    background:var(--bg3);
+  }
+  .skill-card::before{
+    content:'';
+    position:absolute;bottom:0;left:0;right:0;height:1px;
+    background:linear-gradient(to right,transparent,var(--gold),transparent);
+    opacity:0;transition:opacity 0.3s;
+  }
+  .skill-card:hover::before{opacity:1;}
+  .skill-icon{
+    font-size:2rem;margin-bottom:1rem;
+    filter:grayscale(0.3);transition:filter 0.3s;
+  }
+  .skill-card:hover .skill-icon{filter:none;}
+  .skill-name{
+    font-family:'Space Mono',monospace;
+    font-size:0.7rem;letter-spacing:0.12em;
+    text-transform:uppercase;color:var(--text);
+  }
+  .skill-level{
+    margin-top:1rem;height:2px;
+    background:rgba(201,150,58,0.1);
+    border-radius:1px;overflow:hidden;
+  }
+  .skill-fill{
+    height:100%;background:var(--gold);
+    border-radius:1px;
+    transition:width 1s ease-out;
+  }
+
+  /* CONTACT */
+  .contact-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:4rem;
+    align-items:start;
+  }
+  .contact-text{
+    font-family:'Playfair Display',serif;
+    font-size:clamp(2rem,4vw,3rem);
+    font-weight:700;color:#fff;line-height:1.1;
+    margin-bottom:1.5rem;
+  }
+  .contact-text em{
+    color:transparent;
+    -webkit-text-stroke:1px var(--gold);
+    font-style:normal;
+  }
+  .contact-sub{color:var(--muted);line-height:1.8;margin-bottom:2rem;}
+  .contact-links{display:flex;flex-direction:column;gap:1rem;}
+  .contact-link{
+    display:flex;align-items:center;gap:1rem;
+    padding:1rem 1.5rem;
+    border:1px solid var(--border);
+    text-decoration:none;
+    color:var(--text);
+    background:var(--bg2);
+    transition:all 0.3s;
+    font-family:'Space Mono',monospace;
+    font-size:0.8rem;
+  }
+  .contact-link:hover{
+    border-color:var(--gold);
+    color:var(--gold);
+    padding-left:2rem;
+  }
+  .contact-link-icon{color:var(--gold);font-size:1.1rem;flex-shrink:0;}
+  .contact-form{
+    border:1px solid var(--border);
+    padding:2.5rem;background:var(--bg2);
+    position:relative;
+  }
+  .contact-form::before{
+    content:'CONTACT.form';
+    position:absolute;top:-0.6rem;left:1rem;
+    font-family:'Space Mono',monospace;
+    font-size:0.6rem;color:var(--gold);
+    background:var(--bg2);padding:0 0.5rem;
+  }
+  .form-group{margin-bottom:1.5rem;}
+  .form-label{
+    display:block;
+    font-family:'Space Mono',monospace;
+    font-size:0.62rem;letter-spacing:0.15em;
+    text-transform:uppercase;color:var(--gold);
+    margin-bottom:0.5rem;
+  }
+  .form-input,.form-textarea{
+    width:100%;
+    padding:0.8rem 1rem;
+    background:var(--bg);
+    border:1px solid var(--border);
+    color:var(--text);
+    font-family:'DM Sans',sans-serif;
+    font-size:0.9rem;
+    outline:none;
+    transition:border-color 0.3s;
+    resize:vertical;
+  }
+  .form-input:focus,.form-textarea:focus{border-color:var(--gold);}
+  .form-textarea{height:100px;}
+
+  /* FOOTER */
+  footer{
+    position:relative;z-index:1;
+    border-top:1px solid var(--border);
+    padding:2.5rem 4rem;
+    display:flex;align-items:center;justify-content:space-between;
+  }
+  .footer-copy{
+    font-family:'Space Mono',monospace;
+    font-size:0.65rem;color:var(--dim);
+    letter-spacing:0.1em;
+  }
+  .footer-back{
+    font-family:'Space Mono',monospace;
+    font-size:0.65rem;color:var(--gold);
+    letter-spacing:0.1em;
+    text-decoration:none;
+    display:flex;align-items:center;gap:0.5rem;
+    transition:gap 0.3s;
+  }
+  .footer-back:hover{gap:1rem;}
+
+  /* DIVIDER */
+  .section-divider{
+    position:relative;z-index:1;
+    border:none;
+    height:1px;
+    background:linear-gradient(to right,transparent,var(--border),transparent);
+    margin:0 4rem;
+  }
+
+  /* CORNER DECORATION */
+  .corner-tl,.corner-br{
+    position:absolute;
+    width:20px;height:20px;
+  }
+  .corner-tl{top:0;left:0;border-top:2px solid var(--gold);border-left:2px solid var(--gold);}
+  .corner-br{bottom:0;right:0;border-bottom:2px solid var(--gold);border-right:2px solid var(--gold);}
+
+  /* ANIMATIONS */
+  .fade-in{
+    opacity:0;transform:translateY(30px);
+    transition:opacity 0.8s ease,transform 0.8s ease;
+  }
+  .fade-in.visible{opacity:1;transform:none;}
+
+  /* RESPONSIVE */
+  @media(max-width:900px){
+    nav{padding:1rem 2rem;}
+    .nav-links{gap:1.5rem;}
+    section{padding:5rem 2rem;}
+    .hero{padding:6rem 2rem 3rem;}
+    .about-grid,.intern-grid,.contact-grid{grid-template-columns:1fr;}
+    .hero-stats{position:static;flex-direction:row;gap:2.5rem;margin-top:3rem;}
+    .project-body{grid-template-columns:1fr;}
+    .project-header{grid-template-columns:auto 1fr;}.project-tag{display:none;}
+    footer{padding:2rem;flex-direction:column;gap:1rem;text-align:center;}
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Kunal Kumar</div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#education">Education</a>
+    <a href="#internship">Internship</a>
+    <a href="#projects">Projects</a>
+    <a href="#research">Research</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-tag">Civil Engineering Student</div>
+    <h1 class="hero-name">
+      KUNAL<br>
+      <span>KUMAR</span>
+    </h1>
+    <p class="hero-sub">Building Tomorrow's Infrastructure, Today.</p>
+    <p class="hero-desc">
+      A passionate Civil Engineering student at Dayalbagh Educational Institute, 
+      bridging academic rigour with real world construction challenges from 
+      sustainable water treatment to patent pending pavement innovations.
+    </p>
+    <div class="hero-cta">
+      <a href="#contact" class="btn-primary">Get in Touch ↗</a>
+      <a href="#projects" class="btn-secondary">View Projects</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="stat">
+      <div class="stat-num">2<span>+</span></div>
+      <div class="stat-label">Internships</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">2<span>+</span></div>
+      <div class="stat-label">Patent Filings</div>
+    </div>
+  </div>
+  <div class="scroll-indicator">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</div>
+
+<hr class="section-divider">
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-header">
+    <div class="section-num">01 — About</div>
+    <h2 class="section-title">Who I Am</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="about-grid fade-in">
+    <div class="about-text">
+      <p>I am <strong>Kunal Kumar</strong>, a 3rd year B.Tech (Civil Engineering) student at the prestigious <strong>Dayalbagh Educational Institute, Agra</strong>. My journey in engineering is driven by a relentless curiosity to solve real world infrastructure and environmental challenges.</p>
+      <p>From completing hands-on training at <strong>CBRI-CSIR Roorkee</strong> one of India's premier construction research institutions to developing innovative pavement block designs under patent documentation, I combine theoretical knowledge with practical implementation.</p>
+      <p>My work spans <strong>structural design, sustainable construction materials, environmental engineering, and software tools</strong> including AutoCAD, STAAD.Pro, and REVIT. I believe engineering is not just about building structures it's about building a better world.</p>
+    </div>
+    <div class="about-blueprint">
+      <div class="corner-tl"></div>
+      <div class="corner-br"></div>
+      <div class="profile-row">
+        <div class="profile-key">Name</div>
+        <div class="profile-val">Kunal Kumar</div>
+      </div>
+      <div class="profile-row">
+        <div class="profile-key">Phone</div>
+        <div class="profile-val"><a href="tel:+917249951305">+91 7249951305</a></div>
+      </div>
+      <div class="profile-row">
+        <div class="profile-key">Email</div>
+        <div class="profile-val"><a href="mailto:kunals86042@gmail.com">kunals86042@gmail.com</a></div>
+      </div>
+      <div class="profile-row">
+        <div class="profile-key">LinkedIn</div>
+        <div class="profile-val"><a href="https://linkedin.com/in/buildcraftconsultants" target="_blank">buildcraftconsultants ↗</a></div>
+      </div>
+      <div class="profile-row">
+        <div class="profile-key">Location</div>
+        <div class="profile-val">Agra, Uttar Pradesh, India</div>
+      </div>
+      <div class="profile-row">
+        <div class="profile-key">Focus</div>
+        <div class="profile-val">Structural Design &amp; Sustainability</div>
+      </div>
+      <div class="profile-row">
+        <div class="profile-key">Status</div>
+        <div class="profile-val">
+          <span class="edu-status status-pursuing">
+            <span class="status-dot"></span> Open to Opportunities
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-header">
+    <div class="section-num">02 — Education</div>
+    <h2 class="section-title">Academic Path</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="edu-grid fade-in">
+    <div class="edu-item">
+      <div class="edu-year">2022 — 2025</div>
+      <div class="edu-content">
+        <div class="edu-degree">B.Tech — Civil Engineering</div>
+        <div class="edu-inst">Dayalbagh Educational Institute, Agra</div>
+        <div class="edu-status status-pursuing">
+          <span class="status-dot"></span> Currently Pursuing — 3rd Year
+        </div>
+      </div>
+    </div>
+    <div class="edu-item">
+      <div class="edu-year">2022</div>
+      <div class="edu-content">
+        <div class="edu-degree">XII - Science (U.P. Board)</div>
+        <div class="edu-inst">Shri Gauri Shankar Inter College</div>
+        <div class="edu-status status-done">
+          <span class="status-dot"></span> Completed
+        </div>
+      </div>
+    </div>
+    <div class="edu-item">
+      <div class="edu-year">2020</div>
+      <div class="edu-content">
+        <div class="edu-degree">X - Science (U.P. Board)</div>
+        <div class="edu-inst">Shri Gauri Shankar Inter College</div>
+        <div class="edu-status status-done">
+          <span class="status-dot"></span> Completed
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- INTERNSHIP -->
+<section id="internship">
+  <div class="section-header">
+    <div class="section-num">03 — Experience</div>
+    <h2 class="section-title">Internships</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="intern-grid fade-in">
+    <div class="intern-card">
+      <div class="intern-card-num">01</div>
+      <div class="intern-org">Dayalbagh Educational Institute</div>
+      <div class="intern-title">In House Training - Civil Laboratories</div>
+      <ul class="intern-points">
+        <li>Gained practical exposure to civil engineering through advanced in house labs and professional workshops.</li>
+        <li>Worked on community oriented infrastructure projects emphasizing sustainability and modern construction techniques.</li>
+        <li>Conducted hands on experiments in material testing, structural analysis, and environmental engineering.</li>
+      </ul>
+    </div>
+    <div class="intern-card">
+      <div class="intern-card-num">02</div>
+      <div class="intern-org">CBRI-CSIR Roorkee</div>
+      <div class="intern-title">Research Intern - Soil &amp; Material Testing</div>
+      <ul class="intern-points">
+        <li>Successfully completed intensive training on "Determination of Soil Properties Using Laboratory Methods" at India's premier construction research body.</li>
+        <li>Gained advanced practical experience in testing sustainable building materials and quantifying the impact of industrial waste in eco friendly construction.</li>
+        <li>Worked alongside CSIR researchers on emerging construction material standards.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-header">
+    <div class="section-num">04 — Projects</div>
+    <h2 class="section-title">Key Projects</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="fade-in">
+    <div class="project-card">
+      <div class="project-header">
+        <div>
+          <div class="project-name">Grey Water Treatment via Natural Coagulants</div>
+          <div class="project-cat">Environmental Engineering — Jar Test Method</div>
+        </div>
+        <div class="project-tag">Research Project</div>
+      </div>
+      <div class="project-body">
+        <div class="project-desc">
+          A comprehensive study on treating grey water using naturally derived coagulants through the Jar Test Method. The project investigates the efficacy of organic powders derived from Moringa, Neem, and Tamarind in removing turbidity from domestic grey water providing a sustainable, chemical free alternative to conventional treatment.
+          <br><br>
+          The solution targets low income and rural communities where conventional water treatment is economically unfeasible, offering a simple yet highly effective method for water reuse and conservation.
+        </div>
+        <div class="project-highlights">
+          <div class="highlight-item">
+            <div class="highlight-dot"></div>
+            <span>Natural coagulants: Moringa, Neem &amp; Tamarind powders tested for turbidity removal efficiency</span>
+          </div>
+          <div class="highlight-item">
+            <div class="highlight-dot"></div>
+            <span>Jar Test Method protocol developed and standardized for repeatable results</span>
+          </div>
+          <div class="highlight-item">
+            <div class="highlight-dot"></div>
+            <span>Low cost implementation enabling community scale grey water reuse</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- RESEARCH & IP -->
+<section id="research">
+  <div class="section-header">
+    <div class="section-num">05 — Research &amp; IP</div>
+    <h2 class="section-title">Intellectual Property</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="research-grid fade-in">
+    <div class="research-item">
+      <div class="research-num">01</div>
+      <div>
+        <div class="research-title">Interlocking Concrete Paver Block with Central Cross-Shaped Void</div>
+        <div class="research-desc">An innovative paver block design featuring a central cross-shaped void optimized for both pavement and load-bearing applications. The geometry reduces material consumption while maintaining structural integrity. Design and development is complete; patent documentation is currently under preparation (2026).</div>
+      </div>
+      <div class="research-badge">Patent Pending 2026</div>
+    </div>
+    <div class="research-item">
+      <div class="research-num">02</div>
+      <div>
+        <div class="research-title">Hexagonal Drainage Block for Permeable Pavement Systems</div>
+        <div class="research-desc">An innovative hexagonal geometry drainage block engineered for permeable pavement systems. The tessellating hexagonal form maximizes coverage efficiency and surface drainage capacity while enabling natural groundwater recharge a sustainable approach to urban stormwater management. Design is complete; patent filing in preparation (2026).</div>
+      </div>
+      <div class="research-badge">Patent Pending 2026</div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-header">
+    <div class="section-num">06 — Skills</div>
+    <h2 class="section-title">Technical Arsenal</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="skills-grid fade-in">
+    <div class="skill-card">
+      <div class="skill-icon">📐</div>
+      <div class="skill-name">AutoCAD</div>
+      <div class="skill-level"><div class="skill-fill" style="width:90%"></div></div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">🏗️</div>
+      <div class="skill-name">STAAD.Pro</div>
+      <div class="skill-level"><div class="skill-fill" style="width:80%"></div></div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">🧱</div>
+      <div class="skill-name">REVIT</div>
+      <div class="skill-level"><div class="skill-fill" style="width:75%"></div></div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">📊</div>
+      <div class="skill-name">MS Excel</div>
+      <div class="skill-level"><div class="skill-fill" style="width:85%"></div></div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">📝</div>
+      <div class="skill-name">MS Word</div>
+      <div class="skill-level"><div class="skill-fill" style="width:90%"></div></div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">📋</div>
+      <div class="skill-name">Surveying</div>
+      <div class="skill-level"><div class="skill-fill" style="width:78%"></div></div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-header">
+    <div class="section-num">07 — Contact</div>
+    <h2 class="section-title">Let's Connect</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="contact-grid fade-in">
+    <div>
+      <p class="contact-text">Ready to Build <em>Something Great</em> Together?</p>
+      <p class="contact-sub">Whether you're looking for a passionate civil engineering intern, a research collaborator, or want to discuss sustainable construction innovations — I'd love to hear from you.</p>
+      <div class="contact-links">
+        <a href="mailto:kunals86042@gmail.com" class="contact-link">
+          <span class="contact-link-icon">✉</span>
+          kunals86042@gmail.com
+        </a>
+        <a href="tel:+917249951305" class="contact-link">
+          <span class="contact-link-icon">☏</span>
+          +91 7249951305
+        </a>
+        <a href="https://linkedin.com/in/buildcraftconsultants" target="_blank" class="contact-link">
+          <span class="contact-link-icon">in</span>
+          linkedin.com/in/buildcraftconsultants ↗
+        </a>
+      </div>
+    </div>
+    <div class="contact-form">
+      <div class="corner-tl"></div>
+      <div class="form-group">
+        <label class="form-label">Your Name</label>
+        <input type="text" class="form-input" placeholder="John Doe">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Email Address</label>
+        <input type="email" class="form-input" placeholder="john@company.com">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Message</label>
+        <textarea class="form-textarea" placeholder="Tell me about your project or opportunity..."></textarea>
+      </div>
+      <a href="mailto:designsbuildcraft@gmail.com" class="btn-primary" style="display:inline-flex;width:100%;justify-content:center;text-align:center;">Send Message ↗</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-copy">© 2025 Kunal Kumar - Civil Engineer</div>
+  <a href="#" class="footer-back">Back to Top ↑</a>
+</footer>
+
+<script>
+// Intersection Observer for fade-in animations
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// Animated skill bars on scroll
+const skillObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.querySelectorAll('.skill-fill').forEach(fill => {
+        const w = fill.style.width;
+        fill.style.width = '0%';
+        setTimeout(() => { fill.style.width = w; }, 100);
+      });
+    }
+  });
+}, { threshold: 0.3 });
+
+const skillsGrid = document.querySelector('.skills-grid');
+if (skillsGrid) skillObserver.observe(skillsGrid);
+
+// Nav active state
+window.addEventListener('scroll', () => {
+  const sections = document.querySelectorAll('section[id]');
+  const scrollY = window.scrollY + 120;
+  sections.forEach(section => {
+    const top = section.offsetTop;
+    const height = section.offsetHeight;
+    const id = section.getAttribute('id');
+    const link = document.querySelector(`.nav-links a[href="#${id}"]`);
+    if (link) {
+      if (scrollY >= top && scrollY < top + height) {
+        link.style.color = 'var(--gold)';
+      } else {
+        link.style.color = '';
+      }
+    }
+  });
+});
+</script>
+</body>
+</html>
